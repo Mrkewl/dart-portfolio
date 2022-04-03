@@ -51,12 +51,12 @@ class Project {
       'id': id,
       'name': name,
       'description': description,
-      'keyContribution': keyContribution,
+      'key_contribtion': keyContribution,
       'created': created.millisecondsSinceEpoch,
       'updated': updated.millisecondsSinceEpoch,
-      'googleAppLinkUrl': googleAppLinkUrl,
-      'appleAppLinkUrl': appleAppLinkUrl,
-      'pictureUrl': pictureUrl,
+      'google_app_link': googleAppLinkUrl,
+      'apple_app_link': appleAppLinkUrl,
+      'picture_url': pictureUrl,
     };
   }
 
@@ -65,12 +65,12 @@ class Project {
       id: map['id']?.toInt() ?? 0,
       name: map['name'] ?? '',
       description: map['description'] ?? '',
-      keyContribution: map['keyContribution'] ?? '',
-      created: DateTime.fromMillisecondsSinceEpoch(map['created']),
-      updated: DateTime.fromMillisecondsSinceEpoch(map['updated']),
-      googleAppLinkUrl: map['googleAppLinkUrl'] ?? '',
-      appleAppLinkUrl: map['appleAppLinkUrl'] ?? '',
-      pictureUrl: map['pictureUrl'] ?? '',
+      keyContribution: map['key_contribtion'] ?? '',
+      created: DateTime.parse(map['created']),
+      updated: DateTime.parse(map['updated']),
+      googleAppLinkUrl: map['google_app_link'] ?? '',
+      appleAppLinkUrl: map['apple_app_link'] ?? '',
+      pictureUrl: map['picture_url'] ?? '',
     );
   }
 
