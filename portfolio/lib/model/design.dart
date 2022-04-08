@@ -1,15 +1,19 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
+
 class Design {
   String name;
   String imageUrl;
   String description;
   String theme;
+  List<String> screenUrls;
   Design({
     required this.name,
     required this.imageUrl,
     required this.description,
     required this.theme,
+    required this.screenUrls,
   });
 
   Design copyWith({
@@ -17,30 +21,36 @@ class Design {
     String? imageUrl,
     String? description,
     String? theme,
+    List<String>? screenUrls,
   }) {
     return Design(
       name: name ?? this.name,
       imageUrl: imageUrl ?? this.imageUrl,
       description: description ?? this.description,
       theme: theme ?? this.theme,
+      screenUrls: screenUrls ?? this.screenUrls,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'imageUrl': imageUrl,
-      'description': description,
-      'theme': theme,
-    };
+    final result = <String, dynamic>{};
+
+    result.addAll({'name': name});
+    result.addAll({'image_url': imageUrl});
+    result.addAll({'description': description});
+    result.addAll({'theme': theme});
+    result.addAll({'screens_urls': screenUrls});
+
+    return result;
   }
 
   factory Design.fromMap(Map<String, dynamic> map) {
     return Design(
       name: map['name'] ?? '',
-      imageUrl: map['imageUrl'] ?? '',
+      imageUrl: map['image_url'] ?? '',
       description: map['description'] ?? '',
       theme: map['theme'] ?? '',
+      screenUrls: List<String>.from(map['screens_urls']),
     );
   }
 
@@ -50,18 +60,20 @@ class Design {
 
   @override
   String toString() {
-    return 'Design(name: $name, imageUrl: $imageUrl, description: $description, theme: $theme)';
+    return 'Design(name: $name, image_url: $imageUrl, description: $description, theme: $theme, screens_urls: $screenUrls)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
 
     return other is Design &&
         other.name == name &&
         other.imageUrl == imageUrl &&
         other.description == description &&
-        other.theme == theme;
+        other.theme == theme &&
+        listEquals(other.screenUrls, screenUrls);
   }
 
   @override
@@ -69,6 +81,7 @@ class Design {
     return name.hashCode ^
         imageUrl.hashCode ^
         description.hashCode ^
-        theme.hashCode;
+        theme.hashCode ^
+        screenUrls.hashCode;
   }
 }

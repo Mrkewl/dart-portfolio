@@ -15,7 +15,7 @@ class ProjectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      final counter = ref.read(counterProvider.notifier);
+      final counter = ref.read(screenUiProvider.notifier);
       final projects = ref.watch(projectsProvider);
       return SafeArea(
         child: Column(
@@ -108,7 +108,7 @@ class ProjectScreen extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.center,
                     child: CardSectionDots(
-                      dotNumber: ref.watch(counterProvider),
+                      dotNumber: ref.watch(bottomNavigationUiProvider),
                       itemCount: projects.value!.length,
                     ),
                   ),
