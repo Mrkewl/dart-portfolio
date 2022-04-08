@@ -17,33 +17,77 @@ class IntroductionPage extends StatelessWidget {
       children: [
         Consumer(builder: (context, ref, _) {
           final user = ref.watch(userProvider);
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: 4,
-            itemBuilder: (context, index) => SizedBox(
-              height: MediaQuery.of(context).size.height / 9.5,
-              child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: user.when(
-                    data: (data) => Marquee(
-                      text: user.value!.name,
+          return SafeArea(
+            child: user.when(
+              data: (data) => Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 11,
+                    child: Marquee(
+                      text: user.value!.name + ' ',
                       style: GoogleFonts.montserrat(
                           color: Colors.white,
                           fontSize: 70,
                           fontWeight: FontWeight.bold),
                       scrollAxis: Axis.horizontal,
                     ),
-                    error: (err, stackTracea) => Text('Error: $err'),
-                    loading: () => const CircularProgressIndicator(),
-                  )),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 11,
+                    child: Marquee(
+                      text: user.value!.name + ' ',
+                      style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: 70,
+                          fontWeight: FontWeight.bold),
+                      scrollAxis: Axis.horizontal,
+                      startAfter: const Duration(milliseconds: 500),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 11,
+                    child: Marquee(
+                      text: user.value!.name + ' ',
+                      style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: 70,
+                          fontWeight: FontWeight.bold),
+                      scrollAxis: Axis.horizontal,
+                      startAfter: const Duration(milliseconds: 1000),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 11,
+                    child: Marquee(
+                      text: user.value!.name + ' ',
+                      style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: 70,
+                          fontWeight: FontWeight.bold),
+                      scrollAxis: Axis.horizontal,
+                      startAfter: const Duration(milliseconds: 1500),
+                    ),
+                  ),
+                ],
+              ),
+              error: (err, stackTracea) => Text('Error: $err'),
+              loading: () => const CircularProgressIndicator(),
             ),
           );
         }),
-        const Align(
-          alignment: Alignment.topRight,
-          child: Text(
-            'PortFolio',
-            style: TextStyle(color: Colors.white, fontSize: 50),
+        Padding(
+          padding: const EdgeInsets.only(right: 16.0),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Text('Portfolio',
+                style: GoogleFonts.lora(
+                    textStyle: TextStyle(fontStyle: FontStyle.italic),
+                    color: Colors.white,
+                    fontSize: 50,
+                    fontWeight: FontWeight.w400)
+
+                // TextStyle(color: Colors.white, fontSize: 50),
+                ),
           ),
         ),
         const Spacer(),
@@ -62,7 +106,7 @@ class IntroductionPage extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16, bottom: 16),
+                padding: const EdgeInsets.only(bottom: 16),
                 child: BlinkingArrow(),
               ),
               const SizedBox(

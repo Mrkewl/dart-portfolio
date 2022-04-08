@@ -10,17 +10,18 @@ class Project {
   final String googleAppLinkUrl;
   final String appleAppLinkUrl;
   final String pictureUrl;
-  Project({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.keyContribution,
-    required this.created,
-    required this.updated,
-    required this.googleAppLinkUrl,
-    required this.appleAppLinkUrl,
-    required this.pictureUrl,
-  });
+  final String logoUrl;
+  Project(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.keyContribution,
+      required this.created,
+      required this.updated,
+      required this.googleAppLinkUrl,
+      required this.appleAppLinkUrl,
+      required this.pictureUrl,
+      required this.logoUrl});
 
   Project copyWith({
     int? id,
@@ -32,6 +33,7 @@ class Project {
     String? googleAppLinkUrl,
     String? appleAppLinkUrl,
     String? pictureUrl,
+    String? logoUrl,
   }) {
     return Project(
       id: id ?? this.id,
@@ -43,6 +45,7 @@ class Project {
       googleAppLinkUrl: googleAppLinkUrl ?? this.googleAppLinkUrl,
       appleAppLinkUrl: appleAppLinkUrl ?? this.appleAppLinkUrl,
       pictureUrl: pictureUrl ?? this.pictureUrl,
+      logoUrl: logoUrl ?? this.logoUrl,
     );
   }
 
@@ -57,21 +60,22 @@ class Project {
       'google_app_link': googleAppLinkUrl,
       'apple_app_link': appleAppLinkUrl,
       'picture_url': pictureUrl,
+      'logo_url': logoUrl
     };
   }
 
   factory Project.fromMap(Map<String, dynamic> map) {
     return Project(
-      id: map['id']?.toInt() ?? 0,
-      name: map['name'] ?? '',
-      description: map['description'] ?? '',
-      keyContribution: map['key_contribtion'] ?? '',
-      created: DateTime.parse(map['created']),
-      updated: DateTime.parse(map['updated']),
-      googleAppLinkUrl: map['google_app_link'] ?? '',
-      appleAppLinkUrl: map['apple_app_link'] ?? '',
-      pictureUrl: map['picture_url'] ?? '',
-    );
+        id: map['id']?.toInt() ?? 0,
+        name: map['name'] ?? '',
+        description: map['description'] ?? '',
+        keyContribution: map['key_contribtion'] ?? '',
+        created: DateTime.parse(map['created']),
+        updated: DateTime.parse(map['updated']),
+        googleAppLinkUrl: map['google_app_link'] ?? '',
+        appleAppLinkUrl: map['apple_app_link'] ?? '',
+        pictureUrl: map['picture_url'] ?? '',
+        logoUrl: map['logo_url'] ?? '');
   }
 
   String toJson() => json.encode(toMap());
@@ -81,7 +85,7 @@ class Project {
 
   @override
   String toString() {
-    return 'Project(id: $id, name: $name, description: $description, keyContribution: $keyContribution, created: $created, updated: $updated, googleAppLinkUrl: $googleAppLinkUrl, appleAppLinkUrl: $appleAppLinkUrl, pictureUrl: $pictureUrl)';
+    return 'Project(id: $id, name: $name, description: $description, keyContribution: $keyContribution, created: $created, updated: $updated, googleAppLinkUrl: $googleAppLinkUrl, appleAppLinkUrl: $appleAppLinkUrl, pictureUrl: $pictureUrl, logoUrl: $logoUrl)';
   }
 
   @override
@@ -97,7 +101,8 @@ class Project {
         other.updated == updated &&
         other.googleAppLinkUrl == googleAppLinkUrl &&
         other.appleAppLinkUrl == appleAppLinkUrl &&
-        other.pictureUrl == pictureUrl;
+        other.pictureUrl == pictureUrl &&
+        other.logoUrl == logoUrl;
   }
 
   @override
@@ -110,6 +115,7 @@ class Project {
         updated.hashCode ^
         googleAppLinkUrl.hashCode ^
         appleAppLinkUrl.hashCode ^
-        pictureUrl.hashCode;
+        pictureUrl.hashCode ^
+        logoUrl.hashCode;
   }
 }
