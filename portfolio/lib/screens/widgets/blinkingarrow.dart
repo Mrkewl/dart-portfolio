@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BlinkingArrow extends StatefulWidget {
+  const BlinkingArrow({Key? key}) : super(key: key);
+
   @override
   _BlinkingArrowState createState() => _BlinkingArrowState();
 }

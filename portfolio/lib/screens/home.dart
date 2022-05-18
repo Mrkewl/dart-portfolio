@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/screens/project_screen/project_screen.dart';
 
 import '../provider/screenui_providers.dart';
+import 'about_me/about_me.dart';
 import 'design_screen/design_screen.dart';
 import 'introduction_page.dart';
 
@@ -50,11 +51,12 @@ class _HomeState extends State<Home> {
                     currentIndex: bottomNavigationcounter,
                     items: const [
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.abc), label: 'Projects'),
+                          icon: Icon(Icons.blur_on_outlined),
+                          label: 'Projects'),
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.abc), label: 'Designs'),
+                          icon: Icon(Icons.brush), label: 'Designs'),
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.abc), label: 'Projects'),
+                          icon: Icon(Icons.person), label: 'About Me'),
                     ],
                     onTap: (index) {
                       bottomNavigationcounterState.changeValue(index);
@@ -64,8 +66,8 @@ class _HomeState extends State<Home> {
                   body: bottomNavigationcounter == 0
                       ? const ProjectScreen()
                       : bottomNavigationcounter == 1
-                          ? DesignScreen()
-                          : Container());
+                          ? const DesignScreen()
+                          : const AboutMeScreen());
             }),
           ],
         ),

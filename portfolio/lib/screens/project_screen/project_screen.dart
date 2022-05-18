@@ -108,7 +108,7 @@ class ProjectScreen extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.center,
                     child: CardSectionDots(
-                      dotNumber: ref.watch(bottomNavigationUiProvider),
+                      dotNumber: ref.watch(screenUiProvider),
                       itemCount: projects.value!.length,
                     ),
                   ),

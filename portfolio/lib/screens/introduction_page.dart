@@ -79,9 +79,9 @@ class IntroductionPage extends StatelessWidget {
           padding: const EdgeInsets.only(right: 16.0),
           child: Align(
             alignment: Alignment.topRight,
-            child: Text('Portfolio',
+            child: Text('Portfolio V1',
                 style: GoogleFonts.lora(
-                    textStyle: TextStyle(fontStyle: FontStyle.italic),
+                    textStyle: const TextStyle(fontStyle: FontStyle.italic),
                     color: Colors.white,
                     fontSize: 50,
                     fontWeight: FontWeight.w400)
@@ -94,22 +94,22 @@ class IntroductionPage extends StatelessWidget {
         Align(
           alignment: Alignment.bottomLeft,
           child: Column(
-            children: [
-              const Padding(
+            children: const [
+              Padding(
                 padding: EdgeInsets.only(left: 16.0),
                 child: Text(
                   'Swipe Up',
                   style: TextStyle(color: Colors.white, fontSize: 50),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 16),
+                padding: EdgeInsets.only(bottom: 16),
                 child: BlinkingArrow(),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
             ],
