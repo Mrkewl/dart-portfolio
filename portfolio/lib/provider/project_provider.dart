@@ -9,7 +9,7 @@ import 'package:portfolio/utilities/api.dart';
 
 final projectsProvider = FutureProvider<List<Project>>((ref) async {
   Api _api = Api();
-  Response response = await _api.getData('http://3.219.218.59/api/projects');
+  Response response = await _api.getData('http://127.0.0.1:8000/api/projects');
   log(response.body);
   List<Project> projects = [
     ...jsonDecode(response.body).map((e) => Project.fromMap(e)).toList()

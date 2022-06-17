@@ -22,7 +22,7 @@ class IntroductionPage extends StatelessWidget {
               data: (data) => Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 11,
+                    height: MediaQuery.of(context).size.height / 8.5,
                     child: Marquee(
                       text: user.value!.name + ' ',
                       style: GoogleFonts.montserrat(
@@ -33,7 +33,7 @@ class IntroductionPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 11,
+                    height: MediaQuery.of(context).size.height / 8.5,
                     child: Marquee(
                       text: user.value!.name + ' ',
                       style: GoogleFonts.montserrat(
@@ -45,7 +45,7 @@ class IntroductionPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 11,
+                    height: MediaQuery.of(context).size.height / 8.5,
                     child: Marquee(
                       text: user.value!.name + ' ',
                       style: GoogleFonts.montserrat(
@@ -57,7 +57,7 @@ class IntroductionPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 11,
+                    height: MediaQuery.of(context).size.height / 8.5,
                     child: Marquee(
                       text: user.value!.name + ' ',
                       style: GoogleFonts.montserrat(
